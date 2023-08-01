@@ -2,6 +2,13 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss', 'nuxt-icon'
   ],
+  vite: {
+    server: {
+      fs: {
+        strict: false
+      }
+    }
+  },
 })

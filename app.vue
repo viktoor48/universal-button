@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-around">
+  <div class="flex justify-around items-center">
     <v-btn
         @click="clickBtn"
         title="Кнопка"
@@ -11,6 +11,61 @@
         title="Кнопка"
         :inversion="false"
         :disabled="false"
+        size="Small"
+    />
+    <v-btn
+        @click="clickBtn"
+        title="Кнопка"
+        type="Secondary"
+        :inversion="false"
+        :disabled="false"
+        append-icon="close"
+        prepend-icon="close"
+    />
+    <v-btn
+        @click="clickBtn"
+        title="Кнопка"
+        type="Clear"
+        :inversion="false"
+        :disabled="true"
+    />
+    <v-btn
+        @click="clickBtn"
+        type="Clear"
+        :inversion="false"
+        :disabled="false"
+        :loading="true"
+    />
+    <v-btn
+        @click="clickBtn"
+        title="Кнопка"
+        type="Clear"
+        :inversion="false"
+        :disabled="false"
+        :underline="true"
+    />
+    <v-btn
+        @click="clickBtn"
+        title="Кнопка"
+        type="Clear"
+        :inversion="true"
+        :disabled="false"
+        size="Small"
+        :underline="true"
+    />
+    <v-btn
+        @click="clickBtn"
+        type="Primary"
+        :inversion="false"
+        :disabled="false"
+        :loading="true"
+    />
+    <v-btn
+        @click="clickBtn"
+        type="Secondary"
+        :inversion="false"
+        :disabled="false"
+        :loading="true"
         size="Small"
     />
   </div>
