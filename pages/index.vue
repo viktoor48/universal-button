@@ -5,6 +5,7 @@
         title="Кнопка"
         :inversion="false"
         :disabled="false"
+        to="testPage"
     />
     <v-btn
         @click="clickBtn"
@@ -71,8 +72,6 @@
   </div>
 </template>
 <script setup>
-import VBtn from "./components/v-btn";
-
 const clickBtn = () => {
   console.log('click');
 };
