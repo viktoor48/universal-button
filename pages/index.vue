@@ -21,17 +21,7 @@
         :inversion="false"
         :disabled="false"
         append-icon="ep:close"
-        prepend-icon="ep:apple"
-        :iconSize="{width: '24px', height: '24px'}"
-    />
-    <v-btn
-        @click="clickBtn"
-        title="Кнопка"
-        type="Secondary"
-        :inversion="false"
-        :disabled="false"
-        append-icon="ep:close"
-        prepend-icon="ep:apple"
+        prepend-icon="close.svg"
     />
     <v-btn
         @click="clickBtn"
