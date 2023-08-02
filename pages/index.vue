@@ -20,8 +20,8 @@
         type="Secondary"
         :inversion="false"
         :disabled="false"
-        append-icon="ep:close"
-        prepend-icon="close.svg"
+        append-icon="close"
+        prepend-icon="close"
     />
     <v-btn
         @click="clickBtn"

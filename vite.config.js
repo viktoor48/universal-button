@@ -1,16 +1,7 @@
 import { defineConfig } from 'vite'
+import svgLoader from "vite-svg-loader";
+import vue from "vue";
 
 export default defineConfig({
-    build: {
-        rollupOptions: {
-            output: {
-                manualChunks(id) {
-                    if (id.includes('/assets/') && /\.(svg)$/.test(id)) {
-                        return 'assets'
-                    }
-                },
-            },
-        },
-        chunkSizeWarningLimit: 600,
-    },
+    plugins: [vue(), svgLoader()],
 })

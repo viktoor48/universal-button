@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     server: {
       fs: {
         strict: false
-      }
+      },
     }
   },
 })

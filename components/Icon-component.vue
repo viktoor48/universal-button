@@ -1,11 +1,10 @@
 <template>
-    <img :src="getIconPath(props.name)" :style="{ width: props.size.width, height: props.size.height }" />
-<!--  <svg :style="{ width: props.size.width, height: props.size.height }">-->
-<!--    <use :xlink:href="getIconPath(props.name)"/>-->
-<!--  </svg>-->
+  <component :is="icon" :style="{ width: props.size.width, height: props.size.height }" />
 </template>
 
 <script setup>
+import {defineAsyncComponent} from "vue";
+
 const props = defineProps({
   name: {
     type: String,
@@ -17,13 +16,7 @@ const props = defineProps({
   },
 });
 
-const getIconPath = (iconName) => {
-  return `../assets/icons/${iconName}`;
-}
-
-// const getIconPath = (iconName) => {
-//   return `#icon-${iconName}`;
-// }
+const icon = defineAsyncComponent(() => import(`/assets/icons/${props.name}.svg`))
 </script>
 
 <style scoped>
