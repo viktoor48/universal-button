@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-around items-center">
+  <div class="flex flex-wrap gap-4 justify-around items-center">
     <v-btn
         @click="clickBtn"
         title="Кнопка"
@@ -20,8 +20,18 @@
         type="Secondary"
         :inversion="false"
         :disabled="false"
-        append-icon="close"
-        prepend-icon="close"
+        append-icon="ep:close"
+        prepend-icon="ep:apple"
+        :iconSize="{width: '24px', height: '24px'}"
+    />
+    <v-btn
+        @click="clickBtn"
+        title="Кнопка"
+        type="Secondary"
+        :inversion="false"
+        :disabled="false"
+        append-icon="ep:close"
+        prepend-icon="ep:apple"
     />
     <v-btn
         @click="clickBtn"
