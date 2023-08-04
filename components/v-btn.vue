@@ -1,20 +1,29 @@
 <template>
-  <NuxtLink :to="props.to">
-    <button
-        @click="click"
-        class="btn"
-        :class="className"
-    >
-      <IconComponent v-if="props.prependIcon" :name="props.prependIcon" :style="props.iconSize" />
-      <span v-if="props.title">{{ props.title }}</span>
-      <IconComponent v-if="props.appendIcon" :name="props.appendIcon" :style="props.iconSize" />
-      <svg v-if="props.loading" xmlns="http://www.w3.org/2000/svg" :class="[{'loading-small': props.size === 'Small'}]" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M10.72,19.9a8,8,0,0,1-6.5-9.79A7.77,7.77,0,0,1,10.4,4.16a8,8,0,0,1,9.49,6.52A1.54,1.54,0,0,0,21.38,12h.13a1.37,1.37,0,0,0,1.38-1.54,11,11,0,1,0-12.7,12.39A1.54,1.54,0,0,0,12,21.34h0A1.47,1.47,0,0,0,10.72,19.9Z"><animateTransform attributeName="transform" dur="0.75s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></svg>
-    </button>
-  </NuxtLink>
+  <component
+      :is="wrapperComponent"
+      :to="props.to"
+      @click="click"
+      class="btn"
+      :class="className"
+  >
+    <IconComponent v-if="props.prependIcon" :name="props.prependIcon" :style="props.iconSize"/>
+    <span v-if="props.title">{{ props.title }}</span>
+    <IconComponent v-if="props.appendIcon" :name="props.appendIcon" :style="props.iconSize"/>
+    <svg v-if="props.loading" xmlns="http://www.w3.org/2000/svg" :class="[{'loading-small': props.size === 'Small'}]"
+         width="24" height="24" viewBox="0 0 24 24">
+      <path fill="currentColor"
+            d="M10.72,19.9a8,8,0,0,1-6.5-9.79A7.77,7.77,0,0,1,10.4,4.16a8,8,0,0,1,9.49,6.52A1.54,1.54,0,0,0,21.38,12h.13a1.37,1.37,0,0,0,1.38-1.54,11,11,0,1,0-12.7,12.39A1.54,1.54,0,0,0,12,21.34h0A1.47,1.47,0,0,0,10.72,19.9Z">
+        <animateTransform attributeName="transform" dur="0.75s" repeatCount="indefinite" type="rotate"
+                          values="0 12 12;360 12 12"/>
+      </path>
+    </svg>
+  </component>
 </template>
 
 <script setup>
+import NuxtLink from './NuxtLink';
 import {computed} from 'vue';
+
 
 const props = defineProps({
   title: {
@@ -83,6 +92,10 @@ const className = computed(() => {
     'regular': props.size === 'Regular',
     'underline-link': props.underline,
   }
+});
+
+const wrapperComponent = computed(() => {
+  return props.to ? NuxtLink : 'button';
 });
 
 </script>
@@ -198,6 +211,7 @@ const className = computed(() => {
     font-size: 10px;
     line-height: 16px;
     gap: 8px;
+
     &.disabled {
       color: #E8E8E8;
     }
@@ -213,6 +227,7 @@ const className = computed(() => {
 
   &.inversion {
     color: #FFFFFF;
+
     &.underline-link span {
       border-bottom-color: #FFFFFF;
     }
@@ -220,6 +235,7 @@ const className = computed(() => {
 
   &:hover {
     color: #322CFE;
+
     &.underline-link span {
       border-bottom-color: #322CFE;;
     }
@@ -227,6 +243,7 @@ const className = computed(() => {
 
   &:active {
     color: #2B26D9;
+
     &.underline-link span {
       border-bottom-color: #2B26D9;;
     }
